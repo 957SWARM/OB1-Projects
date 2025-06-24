@@ -6,12 +6,25 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.Subsystems.DrivebaseSubsystem;
 
 public class RobotContainer {
+ 
+  DrivebaseSubsystem drive = new DrivebaseSubsystem();
+
+  CommandXboxController xbox = new CommandXboxController(0);
+
   public RobotContainer() {
     configureBindings();
-  }
 
+    drive.setDefaultCommand(
+      drive.arcadeDrive(
+        xbox::getLeftY, 
+        xbox::getRightX
+        )
+    );
+  }
   private void configureBindings() {}
 
   public Command getAutonomousCommand() {
