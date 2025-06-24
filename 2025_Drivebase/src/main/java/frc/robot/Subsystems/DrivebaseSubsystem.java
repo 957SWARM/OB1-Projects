@@ -22,14 +22,14 @@ public class DrivebaseSubsystem extends SubsystemBase {
 
     public Command arcadeDrive(Supplier<Double> y, Supplier<Double> theta){
       return this.run(() -> {
-        double ySpeed = y.get();
-        double thetaSpeed = theta.get();
+        double ySpeed = y.get() * 3;
+        double thetaSpeed = theta.get() * 10;
 
         double leftSpeed = -ySpeed + thetaSpeed;
         double rightSpeed = ySpeed + thetaSpeed;
 
-        right.setVoltage(rightSpeed * 3);
-        left.setVoltage(leftSpeed * 3);
+        right.setVoltage(rightSpeed);
+        left.setVoltage(leftSpeed);
 
         
       });  
