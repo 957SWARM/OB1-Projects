@@ -1,0 +1,15 @@
+Control 5 motors.
+
+Drivetrain:
+Two Neo 550's
+Westcoast drivetrain
+
+Shooter:
+TalonSRX & VictorSPX
+VictorSPX follows TalonSRX
+VictorSPX amp limited to 20 amps
+Button to turn off and on motors
+
+Feed:
+Button drives feed forward
+Another button drives feed backward
