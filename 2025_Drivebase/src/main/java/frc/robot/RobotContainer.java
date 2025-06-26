@@ -19,13 +19,23 @@ public class RobotContainer {
     configureBindings();
 
     drive.setDefaultCommand(
-      drive.arcadeDrive(
+      drive.arcadeDriveNormal(
         xbox::getLeftY, 
         xbox::getRightX
-        )
+      )
+    );
+
+    
+  }
+  private void configureBindings() {
+    xbox.rightTrigger()
+    .whileTrue(
+      drive.arcadeDriveTurbo(
+        xbox::getLeftY,
+        xbox::getRightX
+      )
     );
   }
-  private void configureBindings() {}
 
   public Command getAutonomousCommand() {
     return Commands.print("No autonomous command configured");

@@ -20,7 +20,7 @@ public class DrivebaseSubsystem extends SubsystemBase {
 
    // }
 
-    public Command arcadeDrive(Supplier<Double> y, Supplier<Double> theta){
+    public Command arcadeDriveNormal(Supplier<Double> y, Supplier<Double> theta){
       return this.run(() -> {
         double ySpeed = y.get() * 3;
         double thetaSpeed = theta.get() * 10;
@@ -35,5 +35,19 @@ public class DrivebaseSubsystem extends SubsystemBase {
       });  
     }
     
+    public Command arcadeDriveTurbo(Supplier<Double> y, Supplier<Double> theta){
+      return this.run(() -> {
+        double ySpeed = y.get() * 10.5;
+        double thetaSpeed = theta.get() * 10;
+
+        double leftSpeed = -ySpeed + thetaSpeed;
+        double rightSpeed = ySpeed + thetaSpeed;
+
+        right.setVoltage(rightSpeed);
+        left.setVoltage(leftSpeed);
+
+        
+      });  
+    }
     
 }
