@@ -23,7 +23,7 @@ public class DrivebaseSubsystem extends SubsystemBase {
     public Command arcadeDriveNormal(Supplier<Double> y, Supplier<Double> theta){
       return this.run(() -> {
         double ySpeed = y.get() * 3;
-        double thetaSpeed = theta.get() * 10;
+        double thetaSpeed = theta.get() * 3;
 
         double leftSpeed = -ySpeed + thetaSpeed;
         double rightSpeed = ySpeed + thetaSpeed;
